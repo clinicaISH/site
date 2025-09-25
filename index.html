@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clínica ISH — Landpage</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Motion One (animações suaves) -->
+  <script src="https://unpkg.com/@motionone/dom"></script>
+
+  <style>
+    :root{
+      --gold: #b8860b; /* dourado real */
+      --black: #0b0b0b;
+      --gray-100: #f5f5f6;
+    }
+
+    .gold { color: var(--gold); }
+    .bg-gold { background-color: var(--gold); }
+    .border-gold { border-color: var(--gold) !important; }
+
+    /* Estado inicial para animações - será revelado via JS/MotionOne */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    /* Pequenos ajustes visuais */
+    .tooth-bg {
+      background-image: url('https://img.icons8.com/ios/600/tooth.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: .06;
+    }
+
+    /* Botões em mobile com toque maior */
+    .touch-btn { padding: .85rem 1.25rem; border-radius: .75rem; }
+
+    /* Estilo do acordeão FAQ */
+    .faq-answer { height: 0; overflow: hidden; transition: height .28s ease, opacity .28s ease; opacity: 0; }
+    .faq-open .faq-answer { opacity: 1; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+  <!-- NAV (sticky) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white">
+          <!-- simple logo -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white"><path d="M12 2C9.2 2 6.6 3.2 5 5.3 4.6 5.9 4 7 4 8.2 4 11.1 7.5 14.5 12 22c4.5-7.5 8-10.9 8-13.8 0-1.2-.6-2.3-1-2.9C17.4 3.2 14.8 2 12 2z" fill="currentColor"/></svg>
+        </div>
+        <span class="font-semibold text-lg gold">Clínica ISH</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-gray-700">
+        <a href="#sobre" class="hover:text-gold">A Clínica</a>
+        <a href="#tratamentos" class="hover:text-gold">Tratamentos</a>
+        <a href="#diferenciais" class="hover:text-gold">Diferenciais</a>
+        <a href="#equipe" class="hover:text-gold">Equipe</a>
+        <a href="#faq" class="hover:text-gold">FAQ</a>
+        <a href="#contato" class="hover:text-gold">Contato</a>
+        <a href="https://wa.me/+553599756610" target="_blank" class="ml-2 bg-gold text-black px-4 py-2 rounded-lg font-medium hover:opacity-95">Agendar</a>
+      </nav>
+
+      <!-- mobile menu button -->
+      <div class="md:hidden">
+        <button id="btn-menu" aria-label="Abrir menu" class="text-gray-700 p-2 rounded-md hover:bg-gray-100">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="menu-mobile" class="md:hidden hidden border-t">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        <a href="#sobre" class="py-2">A Clínica</a>
+        <a href="#tratamentos" class="py-2">Tratamentos</a>
+        <a href="#diferenciais" class="py-2">Diferenciais</a>
+        <a href="#equipe" class="py-2">Equipe</a>
+        <a href="#faq" class="py-2">FAQ</a>
+        <a href="#contato" class="py-2">Contato</a>
+        <a href="https://wa.me/SEUNUMERO" target="_blank" class="mt-2 bg-green-600 text-white text-center py-3 rounded-lg">Agendar (WhatsApp)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / INÍCIO -->
+  <section id="inicio" class="pt-6 pb-16 relative">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+      <div class="fade-in">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight gold">Clínica ISH</h1>
+        <p class="mt-4 text-gray-700 max-w-xl">
+          Cuidamos do seu sorriso com procedimentos modernos e personalizados reabilitação oral, implantes, ortodontia e sedação consciente.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://wa.me/+5535999756610" target="_blank" class="touch-btn bg-green-600 text-white font-semibold hover:scale-105 transition">Quero agendar (WhatsApp)</a>
+          <a href="#tratamentos" class="touch-btn border border-gray-200 text-gray-800 bg-white hover:border-gold transition">Conhecer tratamentos</a>
+        </div>
+
+        <ul class="mt-8 grid grid-cols-2 gap-3 text-sm text-gray-600">
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Atendimento humanizado</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="currentColor" stroke-width="2"/></svg> Equipamentos modernos</li>
+        </ul>
+      </div>
+
+      <div class="fade-in relative">
+        <div class="rounded-2xl overflow-hidden shadow-xl bg-white">
+          <img src="images/logopreta1.png" auto=format&fit=crop&w=720&q=60" alt="Clínica ISH" class="w-full h-72 object-cover md:h-full">
+        </div>
+
+        <!-- CTA floating card -->
+        <div class="mt-4 md:mt-6 flex gap-3">
+          <a href="https://www.instagram.com/institutosaudehumana/" target="_blank" class="flex-1 py-3 rounded-lg border border-gray-200 text-center">Instagram</a>
+          <a href="https://www.google.com/search?sxsrf=AE3TifPnVEzpBLRUlq5ZpbvV600IO-iPYg:1758812546742&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s-afz8OD6-zFrMF-dT0g5LPB5HrDplzQ5Ptr0HrPR34qz9DKk4qhY4tJVCt0dRqP15cdYLwtQVl85izE6rxDj0VJbepX0BnfLzdZPdqnTQ9yJgSzh3WrsssIGDszspY_OqhnYHA%3D&q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="flex-1 py-3 rounded-lg border border-gray-200 text-center">Avaliações</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- subtle tooth bg -->
+    <div class="absolute inset-0 pointer-events-none tooth-bg"></div>
+  </section>
+
+  <!-- SOBRE / A Clínica -->
+  <section id="sobre" class="py-14 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="fade-in">
+          <h2 class="text-2xl font-bold gold">Sobre a Clínica ISH</h2>
+          <p class="mt-3 text-gray-700">
+            Na Clínica ISH, unimos tecnologia de ponta, mais de 30 anos de experiência em implantes e uma equipe multidisciplinar especializada.
+            Oferecemos desde procedimentos simples até reabilitações complexas, sempre com foco em conforto, técnicas modernas e resultados naturais.
+          </p>
+
+          <ul class="mt-4 space-y-2 text-gray-600">
+            <li>✓ Atendimento personalizado</li>
+            <li>✓ Sedação consciente quando necessário</li>
+            <li>✓ Planejamento digital e próteses de alta precisão</li>
+          </ul>
+        </div>
+
+        <div class="fade-in">
+          <div class="rounded-xl overflow-hidden shadow-lg">
+            <img src="images/doutores.jpg" auto=format&fit=crop&w=1000&q=60" alt="Equipe clínica" class="w-full h-64 object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMENTOS (grid grande, semelhante ao site modelo) -->
+  <section id="tratamentos" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-yellow-700 mb-12">Tratamentos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Implantes Dentários -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1331/1331615.png" alt="implantes" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Implantes Dentários</h3>
+        <p class="mt-2 text-gray-600">Reposição com segurança e estética.</p>
+        <p class="mt-2 text-gray-500">Planejamento digital, materiais de última geração e pós-operatório acompanhado.</p>
+      </div>
+
+      <!-- Ortodontia (Invisível) -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/6560/6560512.png" alt="ortodontia" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Ortodontia (Invisível)</h3>
+        <p class="mt-2 text-gray-600">Aparelhos removíveis e discretos.</p>
+        <p class="mt-2 text-gray-500">Planos personalizados para cada fase do tratamento.</p>
+      </div>
+
+      <!-- Próteses & Reabilitação -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/8732/8732935.png" alt="protese" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Próteses & Reabilitação</h3>
+        <p class="mt-2 text-gray-600">Soluções estéticas e funcionais.</p>
+        <p class="mt-2 text-gray-500">Integração entre prótese, implante e estética facial quando necessário.</p>
+      </div>
+
+      <!-- Clareamento e Estética Dental -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1060/1060876.png" alt="clareamento" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Clareamento e Estética Dental</h3>
+        <p class="mt-2 text-gray-600">Técnicas seguras e comprovadas.</p>
+        <p class="mt-2 text-gray-500">Resultados previsíveis e naturais.</p>
+      </div>
+
+      <!-- Endodontia (Canal Rotativo) -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/2932/2932277.png" alt="endodontia" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Endodontia (Canal Rotativo)</h3>
+        <p class="mt-2 text-gray-600">Tratamento eficiente e em menor número de sessões.</p>
+        <p class="mt-2 text-gray-500">Protocolos minimamente invasivos e controle de dor.</p>
+      </div>
+
+      <!-- Sedação Consciente -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/3524/3524327.png" alt="sedacao" class="w-8 h-8">
+        <h3 class="text-xl font-semibold mt-4">Sedação Consciente</h3>
+        <p class="mt-2 text-gray-600">Para pacientes com medo ou procedimentos longos.</p>
+        <p class="mt-2 text-gray-500">Equipe treinada e protocolos seguros.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" class="py-14 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Diferenciais</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-gray-50 rounded-xl fade-in">
+          <h4 class="font-semibold">Planejamento Digital</h4>
+          <p class="text-sm text-gray-600 mt-2">Tomografia, planejamento 3D e guias cirúrgicos.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl fade-in">
+          <h4 class="font-semibold">Equipe Multidisciplinar</h4>
+          <p class="text-sm text-gray-600 mt-2">Implantodontia, prótese, ortodontia, endodontia e harmonização com foco na manutenção.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl fade-in">
+          <h4 class="font-semibold">Atendimento Humanizado</h4>
+          <p class="text-sm text-gray-600 mt-2">Atenção a cada detalhe do paciente, desde a recepção ao pós-tratamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section id="equipe" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Nossa Equipe</h3>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- repita/adapte conforme necessário -->
+        <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+          <img src="images/drporfirio.png" alt="Dr. Porfirio Baganha" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+          <h5 class="mt-4 font-semibold">Dr. Porfirio Baganha</h5>
+          <p class="text-xs text-gray-600">Implantodontia</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+          <img src="images/dracris.png" alt="" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+          <h5 class="mt-4 font-semibold">Dra. Cristinae Simeão Baganha</h5>
+          <p class="text-xs text-gray-600">Ortodontia</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+          <img src="https://via.placeholder.com/160" alt="" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+          <h5 class="mt-4 font-semibold">Dra. -------</h5>
+          <p class="text-xs text-gray-600">Especialidade</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+          <img src="https://via.placeholder.com/160" alt="" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+          <h5 class="mt-4 font-semibold">Dra. -----</h5>
+          <p class="text-xs text-gray-600">Especialidade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (acordeão simples) -->
+  <section id="faq" class="py-14 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-2xl font-bold gold text-center mb-6 fade-in">Perguntas Frequentes</h3>
+
+      <div class="space-y-4">
+        <div class="border rounded-lg overflow-hidden faq-item fade-in">
+          <button class="w-full flex justify-between items-center px-4 py-4 text-left faq-toggle">
+            <span class="font-medium">O tratamento com implantes dói?</span>
+            <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="px-4 pb-4 faq-answer">
+            <p class="text-sm text-gray-600">Não a anestesia local é realizada e os protocolos pós-operatórios reduzem o desconforto.</p>
+          </div>
+        </div>
+
+<div class="border rounded-lg overflow-hidden faq-item fade-in">
+          <button class="w-full flex justify-between items-center px-4 py-4 text-left faq-toggle">
+            <span class="font-medium">É necessário afastar-se do trabalho durante o tratamento?</span>
+            <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="px-4 pb-4 faq-answer">
+            <p class="text-sm text-gray-600">Normalmente, não é preciso se ausentar do trabalho. Alguns procedimentos podem causar leve inchaço ou sensibilidade nos primeiros dias, mas permitem rotina quase normal.</p>
+          </div>
+          </div>
+
+          
+<div class="border rounded-lg overflow-hidden faq-item fade-in">
+          <button class="w-full flex justify-between items-center px-4 py-4 text-left faq-toggle">
+            <span class="font-medium">Existe idade mínima ou máxima para implantes dentários?</span>
+            <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="px-4 pb-4 faq-answer">
+            <p class="text-sm text-gray-600">Pacientes com crescimento ósseo completo podem receber implantes, geralmente após os 18 anos. Para pacientes mais velhos, a avaliação individual garante segurança e sucesso do tratamento.</p>
+          </div>
+          </div>
+
+        <div class="border rounded-lg overflow-hidden faq-item fade-in">
+          <button class="w-full flex justify-between items-center px-4 py-4 text-left faq-toggle">
+            <span class="font-medium">Quanto tempo dura uma reabilitação completa?</span>
+            <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="px-4 pb-4 faq-answer">
+            <p class="text-sm text-gray-600">Depende do caso; iremos apresentar cronograma e etapas na avaliação inicial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO + MAPA EMBED (coloque o link real do Google Maps) -->
+  <section id="contato" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
+      <div class="fade-in">
+        <h3 class="text-2xl font-bold gold mb-3">Contato & Localização</h3>
+        <p class="text-gray-700 mb-4">Agende pelo WhatsApp, ligue ou envie e-mail. Atendimento humanizado e acompanhamento pós-tratamento.</p>
+
+        <div class="space-y-3 text-sm text-gray-700">
+          <p><strong>Endereço:</strong> R. Constante Jardim, 112 - Ouro Fino, MG, 37570-000</p>
+          <p><strong>WhatsApp / Telefone:</strong> 3441-3800</p>
+          <p><strong>E-mail:</strong> contato@clinicaish.com.br</p>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+          <a href="https://wa.me/+5535999756610" target="_blank" class="bg-green-600 text-white py-3 px-4 rounded-lg">WhatsApp</a>
+          <a href="https://www.instagram.com/institutosaudehumana/" target="_blank" class="bg-black text-white py-3 px-4 rounded-lg">Instagram</a>
+          <a href="https://www.google.com/search?sxsrf=AE3TifPnVEzpBLRUlq5ZpbvV600IO-iPYg:1758812546742&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s-afz8OD6-zFrMF-dT0g5LPB5HrDplzQ5Ptr0HrPR34qz9DKk4qhY4tJVCt0dRqP15cdYLwtQVl85izE6rxDj0VJbepX0BnfLzdZPdqnTQ9yJgSzh3WrsssIGDszspY_OqhnYHA%3D&q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="bg-white border border-gray-200 py-3 px-4 rounded-lg">Avaliações</a>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <!-- mapa embed placeholder (substitua o src pelo embed do Google Maps real) -->
+        <div class="rounded-lg overflow-hidden shadow">
+       <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.158841190946!2d-46.42122938503841!3d-22.110210085369367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d5c6b69654e3ab%3A0x123456789abcdef!2sR.%20Constante%20Jardim%2C%20112%20-%20Ouro%20Fino%2C%20MG%2C%2037570-000!5e0!3m2!1spt-BR!2sbr!4v169<>!5m2!1spt-BR!2sbr"
+  width="100%"
+  height="300"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy">
+</iframe>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© <span id="ano"></span> Clínica ISH — Todos os direitos reservados.</p>
+      <div class="flex gap-3">
+        <a href="https://www.instagram.com/institutosaudehumana/" target="_blank" class="text-gray-300">Instagram</a>
+        <a href="https://wa.me/+5535999756610" target="_blank" class="text-gray-300">WhatsApp</a>
+        <a href="https://www.google.com/maps/embed?pb=!1m18!2m12!1m3!1d0!2d-46.574!3d-23.543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMzPCsDMyJzQ2LjAiUyA0NsKwMzQnNTUuNiJX!5e0!3m2!1spt-BR!2sbr!4v0000000000000" target="_blank" class="text-gray-300">Avaliações</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS: animações, menu mobile e FAQ (tudo robusto para não quebrar) -->
+  <script>
+    // Ano dinâmico do rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Menu mobile toggle
+    (function(){
+      const btn = document.getElementById('btn-menu');
+      const mobile = document.getElementById('menu-mobile');
+      if(!btn || !mobile) return;
+      btn.addEventListener('click', () => mobile.classList.toggle('hidden'));
+    })();
+
+    // FAQ toggle (acordeão simples e acessível)
+    (function(){
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const btn = item.querySelector('.faq-toggle');
+        const answer = item.querySelector('.faq-answer');
+        if(!btn || !answer) return;
+
+        // prepare answer real height when opened
+        const inner = answer.firstElementChild || answer;
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('faq-open');
+          if(isOpen) {
+            item.classList.remove('faq-open');
+            answer.style.height = 0;
+          } else {
+            item.classList.add('faq-open');
+            // set height to scrollHeight to animate
+            answer.style.height = (answer.scrollHeight) + 'px';
+          }
+        });
+      });
+    })();
+
+    // Animações - use Motion One se disponível; fallback suave sem erros
+    window.addEventListener('load', () => {
+      const els = Array.from(document.querySelectorAll('.fade-in'));
+      if(window.motion && typeof motion.animate === 'function') {
+        els.forEach((el, idx) => {
+          // small delay staggering
+          motion.animate(el, { opacity: [0,1], y: [18, 0] }, {
+            delay: idx * 0.08,
+            duration: 0.6,
+            easing: 'ease-out'
+          });
+        });
+      } else {
+        // fallback: remove initial transform and show elements
+        els.forEach(el => {
+          el.style.transition = 'opacity .4s ease, transform .4s ease';
+          el.style.opacity = 1;
+          el.style.transform = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
