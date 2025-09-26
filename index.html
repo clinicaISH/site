@@ -75,13 +75,25 @@
                 border-bottom: 1px solid #f3f4f6;
             }
         }
+
+        /* Estilo para posts do Instagram */
+        .instagram-embed-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .instagram-media {
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
 
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between relative">
-            <a href="#inicio" class="flex items-center gap-3">
+            <a href="#sobre" class="flex items-center gap-3">
                 <img src="images/logopreta1.png" alt="Logotipo Clínica ISH" class="h-8 md:h-10">
             </a>
 
@@ -93,41 +105,16 @@
 
             <nav id="nav-menu" class="hidden md:flex items-center gap-4 text-gray-700 md:gap-6 nav-menu" role="navigation">
                 <a href="#sobre" class="hover:text-gold text-sm md:text-base">Sobre</a>
-                <a href="#tratamentos" class="hover:text-gold text-sm md:text-base">Tratamentos</a>
-                <a href="#diferenciais" class="hover:text-gold text-sm md:text-base">Diferenciais</a>
                 <a href="#equipe" class="hover:text-gold text-sm md:text-base">Equipe</a>
+                <a href="#tratamentos" class="hover:text-gold text-sm md:text-base">Tratamentos</a>
+                <a href="#antes-depois" class="hover:text-gold text-sm md:text-base">Antes & Depois</a>
+                <a href="#avaliacoes" class="hover:text-gold text-sm md:text-base">Avaliações</a>
                 <a href="#faq" class="hover:text-gold text-sm md:text-base">FAQ</a>
                 <a href="#contato" class="hover:text-gold text-sm md:text-base">Contato</a>
                 <a href="https://wa.me/+553599756610" target="_blank" class="md:ml-2 bg-gold text-black px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-medium hover:opacity-95 text-sm md:text-base">Agendar</a>
             </nav>
         </div>
     </header>
-
-    <section id="inicio" class="pt-6 pb-16 relative">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
-            <div class="fade-in">
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight gold">Clínica ISH</h1>
-                <p class="mt-4 text-gray-700 max-w-xl">
-                    Cuidamos do seu sorriso com procedimentos modernos e personalizados: reabilitação oral, implantes, ortodontia e sedação consciente.
-                </p>
-
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="https://wa.me/+5535999756610" target="_blank" class="touch-btn bg-green-600 text-white font-semibold hover:scale-105 transition">Quero agendar (WhatsApp)</a>
-                    <a href="#tratamentos" class="touch-btn border border-gray-200 text-gray-800 bg-white hover:border-gold transition">Conhecer tratamentos</a>
-                </div>
-
-                <ul class="mt-8 grid grid-cols-2 gap-3 text-sm text-gray-600">
-                    <li class="flex items-center gap-2"><svg class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Atendimento humanizado</li>
-                    <li class="flex items-center gap-2"><svg class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="currentColor" stroke-width="2"/></svg> Equipamentos modernos</li>
-                </ul>
-            </div>
-
-            <div class="mt-4 md:mt-6 flex gap-3">
-                <a href="https://www.instagram.com/institutosaudehumana/" target="_blank" class="flex-1 py-3 rounded-lg border border-gray-200 text-center">Instagram</a>
-                <a href="https://www.google.com/search?sxsrf=AE3TifPnVEzpBLRUlq5ZpbvV600IO-iPYg:1758812546742&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s-afz8OD6-zFrMF-dT0g5LPB5HrDplzQ5Ptr0HrPR34qz9DKk4qhY4tJVCt0dRqP15cdYLwtQVl85izE6rxDj0VJbepX0BnfLzdZPdqnTQ9yJgSzh3WrsssIGDszspY_OqhnYHA%3D&q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="flex-1 py-3 rounded-lg border border-gray-200 text-center">Avaliações</a>
-            </div>
-        </div>
-    </section>
 
     <section id="sobre" class="py-14 bg-white">
         <div class="max-w-5xl mx-auto px-6">
@@ -150,6 +137,38 @@
                     <div class="rounded-xl overflow-hidden shadow-lg">
                         <img src="images/doutores.jpg" alt="Equipe clínica" class="w-full h-64 object-cover">
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Nossa Equipe</h3>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+                    <img src="images/drporfirio.png" alt="Dr. Porfirio Baganha" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+                    <h5 class="mt-4 font-semibold">Dr. Porfirio Baganha</h5>
+                    <p class="text-xs text-gray-600">Implantodontia</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+                    <img src="images/dracris.png" alt="Dra. Cristinae Simeão Baganha" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+                    <h5 class="mt-4 font-semibold">Dra. Cristinae Simeão Baganha</h5>
+                    <p class="text-xs text-gray-600">Ortodontia</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+                    <img src="images/placeholder.png" alt="Doutora Especialista" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+                    <h5 class="mt-4 font-semibold">Dra. [Nome]</h5>
+                    <p class="text-xs text-gray-600">Especialidade</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
+                    <img src="images/placeholder.png" alt="Doutora Especialista" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
+                    <h5 class="mt-4 font-semibold">Dra. [Nome]</h5>
+                    <p class="text-xs text-gray-600">Especialidade</p>
                 </div>
             </div>
         </div>
@@ -206,6 +225,26 @@
         </div>
     </section>
 
+    <section id="antes-depois" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Antes e Depois</h3>
+            <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">Confira nossos resultados mais incríveis diretamente do nosso Instagram.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md instagram-embed-container fade-in">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNG7t9UtzYQ/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md instagram-embed-container fade-in">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DM8oqhYMZJW/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md instagram-embed-container fade-in">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNytYxAWjj6/?img_index=1" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="diferenciais" class="py-14 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Diferenciais</h3>
@@ -226,34 +265,20 @@
         </div>
     </section>
 
-    <section id="equipe" class="py-16 bg-gray-50">
+    <section id="avaliacoes" class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
-            <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Nossa Equipe</h3>
-
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
-                    <img src="images/drporfirio.png" alt="Dr. Porfirio Baganha" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
-                    <h5 class="mt-4 font-semibold">Dr. Porfirio Baganha</h5>
-                    <p class="text-xs text-gray-600">Implantodontia</p>
+            <h3 class="text-2xl font-bold gold text-center mb-8 fade-in">Avaliações</h3>
+            <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">Veja o que nossos clientes estão dizendo sobre o atendimento e os resultados.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center fade-in">
+                    <img src="https://via.placeholder.com/80" alt="Foto de Perfil" class="w-20 h-20 rounded-full mb-4 object-cover">
+                    <h4 class="font-semibold">Nome do Cliente</h4>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">⭐⭐⭐⭐⭐</p>
+                    <p class="text-sm text-gray-500 italic">"Excelente atendimento e profissionais muito competentes. Recomendo a todos que procuram um sorriso perfeito!"</p>
                 </div>
-
-                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
-                    <img src="images/dracris.png" alt="Dra. Cristinae Simeão Baganha" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
-                    <h5 class="mt-4 font-semibold">Dra. Cristinae Simeão Baganha</h5>
-                    <p class="text-xs text-gray-600">Ortodontia</p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
-                    <img src="images/placeholder.png" alt="Doutora Especialista" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
-                    <h5 class="mt-4 font-semibold">Dra. [Nome]</h5>
-                    <p class="text-xs text-gray-600">Especialidade</p>
-                </div>
-
-                <div class="bg-white rounded-2xl p-6 text-center shadow fade-in">
-                    <img src="images/placeholder.png" alt="Doutora Especialista" class="w-28 h-28 rounded-full mx-auto border-4 border-white shadow-sm object-cover">
-                    <h5 class="mt-4 font-semibold">Dra. [Nome]</h5>
-                    <p class="text-xs text-gray-600">Especialidade</p>
-                </div>
+                 </div>
+            <div class="mt-8 text-center">
+                <a href="https://www.google.com/search?q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="touch-btn border border-gold text-gold hover:bg-gold hover:text-white transition">Ver todas as avaliações no Google</a>
             </div>
         </div>
     </section>
@@ -321,7 +346,7 @@
                 <div class="mt-6 flex gap-3">
                     <a href="https://wa.me/+5535999756610" target="_blank" class="bg-green-600 text-white py-3 px-4 rounded-lg">WhatsApp</a>
                     <a href="https://www.instagram.com/institutosaudehumana/" target="_blank" class="bg-black text-white py-3 px-4 rounded-lg">Instagram</a>
-                    <a href="https://www.google.com/search?sxsrf=AE3TifPnVEzpBLRUlq5ZpbvV600IO-iPYg:1758812546742&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8s-afz8OD6-zFrMF-dT0g5LPB5HrDplzQ5Ptr0HrPR34qz9DKk4qhY4tJVCt0dRqP15cdYLwtQVl85izE6rxDj0VJbepX0BnfLzdZPdqnTQ9yJgSzh3WrsssIGDszspY_OqhnYHA%3D&q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="bg-white border border-gray-200 py-3 px-4 rounded-lg">Avaliações</a>
+                    <a href="https://www.google.com/search?q=Ouro+Fino+Instituto+de+Sa%C3%BAde+Humana+Coment%C3%A1rios" target="_blank" class="bg-white border border-gray-200 py-3 px-4 rounded-lg">Avaliações</a>
                 </div>
             </div>
 
@@ -343,6 +368,8 @@
             </div>
         </div>
     </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
 
     <script>
         // Ano dinâmico do rodapé
@@ -407,7 +434,6 @@
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('nav-menu').classList.toggle('open');
         });
-
     </script>
 </body>
 </html>
